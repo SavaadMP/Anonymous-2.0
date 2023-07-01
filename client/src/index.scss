@@ -11,3 +11,30 @@
 body {
   background: $bg-color;
 }
+
+@mixin button_style {
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.4s;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.primary-btn {
+  @include button_style;
+  background: $secondary-color;
+  color: $white-color;
+
+  &:hover {
+    background: $secondary-hover-color;
+  }
+}
+
+.secondary-btn {
+  @include button_style;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+}

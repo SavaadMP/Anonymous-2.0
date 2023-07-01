@@ -30,22 +30,6 @@ header {
       }
     }
   }
-
-  button {
-    border: none;
-    background: $secondary-color;
-    padding: 12px 30px;
-    border-radius: 30px;
-    color: $white-color;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.4s;
-    letter-spacing: 1px;
-
-    &:hover {
-      background: $secondary-hover-color;
-    }
-  }
 }
 
 @media screen and (max-width: 768px) {

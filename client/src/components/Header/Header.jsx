@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./Header.scss";
 import { Link } from "react-router-dom";
 
@@ -19,7 +18,7 @@ function Header() {
           <Link to="/">FAQ</Link>
         </li>
       </ul>
-      <button>Get Started</button>
+      <button className="primary-btn">Get Started</button>
     </header>
   );
 }

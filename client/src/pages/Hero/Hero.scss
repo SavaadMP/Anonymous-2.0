@@ -1,0 +1,85 @@
+@import "../../variables";
+.hero {
+  .hero_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10%;
+
+    .hero_text {
+      width: 40%;
+
+      h1 {
+        color: $primary-color;
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+      p {
+        color: $text-color;
+      }
+      .button_group {
+        margin-top: 30px;
+        display: flex;
+        a {
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .hero_image {
+      animation: MoveUpandDown 1s linear infinite;
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .hero {
+    .hero_content {
+      margin-top: 50px;
+      flex-direction: column-reverse;
+      padding: 10% 0;
+
+      .hero_text {
+        width: 100%;
+        padding: 40px;
+        text-align: center;
+
+        h1 {
+          font-size: 30px;
+        }
+
+        .button_group {
+          justify-content: center;
+        }
+      }
+
+      .hero_image {
+        img {
+          width: 350px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .hero {
+    .hero_content {
+      .hero_text {
+        .button_group {
+          flex-direction: column;
+
+          a {
+            margin-bottom: 20px;
+          }
+        }
+      }
+
+      .hero_image {
+        img {
+          width: 350px;
+        }
+      }
+    }
+  }
+}
