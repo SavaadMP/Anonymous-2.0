@@ -54,6 +54,8 @@
       }
 
       .hero_image {
+        animation: MoveUpandDown 1s linear infinite;
+
         img {
           width: 350px;
         }
@@ -76,10 +78,22 @@
       }
 
       .hero_image {
+        animation: MoveUpandDown 1s linear infinite;
         img {
           width: 350px;
         }
       }
     }
+  }
+}
+
+@keyframes MoveUpandDown {
+  0%,
+  100% {
+    padding: 0 0;
+  }
+
+  50% {
+    padding: 0 10px;
   }
 }
