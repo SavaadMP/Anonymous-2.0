@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import UserCodeInput from "../UserCodeInput/UserCodeInput";
 import "./UserCodeForm.scss";
 
 function UserCodeForm() {
   const codeRef = useRef({});
+  const navigate = useNavigate();
   useEffect(() => {
     codeRef.current[0].focus();
     codeRef.current[0].addEventListener("paste", pasteUserCode);
@@ -67,6 +69,7 @@ function UserCodeForm() {
     var allLetters = usercode.join("");
 
     console.log(allLetters);
+    navigate("/sendMessage");
   }
 
   return (
