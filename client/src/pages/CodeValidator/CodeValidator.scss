@@ -1,0 +1,50 @@
+@import "../../variables";
+
+.usercode_container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  .usercode_content {
+    row-gap: 20px;
+    background: #fff;
+    padding: 30px 65px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+
+    .usercode_icon {
+      height: 65px;
+      width: 65px;
+      background: $secondary-color;
+      color: $white-color;
+      font-size: 2.5rem;
+      border-radius: 50%;
+    }
+
+    h4 {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+:where(.usercode_content, form, .input_field, .usercode_icon) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 465px) {
+  .usercode_container {
+    .usercode_content {
+      padding: 30px;
+      width: 80%;
+
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

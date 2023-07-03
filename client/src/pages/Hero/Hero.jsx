@@ -12,7 +12,7 @@ function Hero() {
             the freedom to express yourself openly and anonymously
           </p>
           <div className="button_group">
-            <Link to="/" className="primary-btn">
+            <Link to="/usercode" className="primary-btn">
               Send Message
             </Link>
             <Link to="/" className="secondary-btn">

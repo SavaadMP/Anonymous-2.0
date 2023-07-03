@@ -1,0 +1,48 @@
+@import "../../variables";
+form {
+  .input_field {
+    flex-direction: row;
+    column-gap: 10px;
+
+    input {
+      height: 45px;
+      width: 42px;
+      border-radius: 6px;
+      outline: none;
+      text-align: center;
+      font-size: 1.125rem;
+      font-weight: 800;
+      border: 1px solid $primary-color;
+      text-transform: uppercase;
+    }
+  }
+
+  button {
+    margin-top: 25px;
+    width: 100%;
+    background: $secondary-color;
+    color: $white-color;
+    font-size: 1rem;
+    border: none;
+    padding: 9px 0;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: $secondary-hover-color;
+    }
+  }
+}
+
+@media screen and (max-width: 465px) {
+  form {
+    .input_field {
+      input {
+        height: 31px;
+        width: 26px;
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
