@@ -18,7 +18,17 @@ function Header() {
           <Link to="/">FAQ</Link>
         </li>
       </ul>
-      <button className="primary-btn">Get Started</button>
+      <button className="primary-btn">
+        <Link
+          to="/register"
+          style={{
+            textDecoration: "none",
+            color: "white",
+          }}
+        >
+          Get Started
+        </Link>
+      </button>
     </header>
   );
 }

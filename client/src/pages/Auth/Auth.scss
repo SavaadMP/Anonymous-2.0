@@ -1,0 +1,102 @@
+@import "../../variables";
+
+.auth_container {
+  padding: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .auth_content {
+    width: 500px;
+    padding: 20px;
+    background: #fff;
+
+    h3 {
+      font-size: 22px;
+      color: $secondary-color;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .auth_form {
+      form {
+        .form_group {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+
+          &.change_auth {
+            p {
+              margin-top: 10px;
+              text-align: center;
+              color: $primary-color;
+
+              a {
+                color: $secondary-color;
+              }
+            }
+          }
+
+          &.termsAndCond {
+            display: flex;
+            flex-direction: row;
+            margin-top: 10px;
+            align-items: center;
+
+            label {
+              color: $text-color;
+              font-weight: 600;
+              font-size: 15px;
+              letter-spacing: 1px;
+            }
+
+            input {
+              margin-right: 10px;
+              font-size: 1.5rem;
+              appearance: none;
+              background: #fff;
+              border-radius: 50%;
+              width: 1.1rem;
+              height: 1.1rem;
+              cursor: pointer;
+              padding: 10px;
+              border: 2px solid $secondary-color;
+              transform: translateY(-0.075em);
+              display: grid;
+              place-content: center;
+
+              &::before {
+                content: "";
+                width: 0.6em;
+                height: 0.6em;
+                border-radius: 50%;
+                transform: scale(0);
+                transition: 120ms transform ease-in-out;
+                box-shadow: inset 1em 1em $secondary-color;
+              }
+
+              &:checked::before {
+                transform: scale(1);
+              }
+            }
+          }
+
+          label {
+            margin-bottom: 10px;
+          }
+
+          input {
+            padding: 10px 20px;
+            margin-bottom: 5px;
+            border: 2px solid $text-color;
+            border-radius: 5px;
+            outline: none;
+            font-weight: 500;
+            color: $primary-color;
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+  }
+}

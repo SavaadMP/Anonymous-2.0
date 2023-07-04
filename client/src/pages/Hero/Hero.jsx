@@ -15,7 +15,7 @@ function Hero() {
             <Link to="/usercode" className="primary-btn">
               Send Message
             </Link>
-            <Link to="/" className="secondary-btn">
+            <Link to="/login" className="secondary-btn">
               Login
             </Link>
           </div>
