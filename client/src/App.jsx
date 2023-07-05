@@ -6,6 +6,7 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import SendMessage from "./pages/SendMessage/SendMessage";
 import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route index path="/" element={<Hero />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/usercode" element={<CodeValidator />} />
         <Route path="/sendMessage" element={<SendMessage />} />
         <Route path="/login" element={<Login />} />

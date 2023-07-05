@@ -73,7 +73,7 @@ function UserCodeForm() {
   }
 
   return (
-    <form onSubmit={verifyOTP}>
+    <form className="usercode_form" onSubmit={verifyOTP}>
       <div className="input_field">{renderInput()}</div>
       <button type="submit">Verify & Proceed</button>
     </form>

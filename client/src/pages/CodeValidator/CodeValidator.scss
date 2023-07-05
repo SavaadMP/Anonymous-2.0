@@ -29,7 +29,7 @@
   }
 }
 
-:where(.usercode_content, form, .input_field, .usercode_icon) {
+:where(.usercode_content, .usercode_form, .input_field, .usercode_icon) {
   display: flex;
   flex-direction: column;
   align-items: center;
