@@ -1,8 +1,12 @@
 import "./Profile.scss";
 import AccDetails from "../../components/AccDetails/AccDetails";
 import ProfileDetails from "../../components/ProfileDetails/ProfileDetails";
+import AllMessages from "../../components/AllMessages/AllMessages";
+import { useState } from "react";
 
 function Profile() {
+  const [tab, setTab] = useState(1);
+
   return (
     <section className="profile_container">
       <div className="profile_content">
@@ -11,10 +15,14 @@ function Profile() {
         </div>
         <div className="right">
           <div className="tabs_content">
-            <p className="">All Messages</p>
-            <p className="active">Account Details</p>
+            <p className={tab == 1 ? "active" : ""} onClick={() => setTab(1)}>
+              All Messages
+            </p>
+            <p className={tab == 2 ? "active" : ""} onClick={() => setTab(2)}>
+              Account Details
+            </p>
           </div>
-          <AccDetails />
+          {tab == 2 ? <AccDetails /> : <AllMessages />}
         </div>
       </div>
     </section>

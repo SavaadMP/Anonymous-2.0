@@ -1,0 +1,16 @@
+@import "../../variables";
+.allMessages {
+  .filter_messages {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    select {
+      margin: 10px 0;
+      padding: 5px 10px;
+      border: 2px solid $primary-color;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}
