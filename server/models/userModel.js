@@ -47,7 +47,7 @@ userSchema.statics.signup = async function (
 
   const isPasswordMatch = password === confirmPassword;
   if (!isPasswordMatch) {
-    throw Error("passwod do not match!!");
+    throw Error("password do not match!!");
   }
 
   const existEmail = await this.findOne({ email });
