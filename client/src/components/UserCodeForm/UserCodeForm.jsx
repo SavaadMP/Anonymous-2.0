@@ -1,16 +1,17 @@
-import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import UserCodeInput from "../UserCodeInput/UserCodeInput";
 import "./UserCodeForm.scss";
+import { useEffect, useRef, useState } from "react";
+import { useVerifyCode } from "../../hooks/useVerifyCode";
+import UserCodeInput from "../UserCodeInput/UserCodeInput";
 
 function UserCodeForm() {
   const codeRef = useRef({});
-  const navigate = useNavigate();
   useEffect(() => {
     codeRef.current[0].focus();
     codeRef.current[0].addEventListener("paste", pasteUserCode);
     return codeRef.current[0].removeEventListener("paste", pasteUserCode);
   }, []);
+
+  const { verifyUserCode, isLoading, error } = useVerifyCode();
 
   const pasteUserCode = (event) => {
     const pastedText = event.clipboardData.getData("text");
@@ -63,17 +64,52 @@ function UserCodeForm() {
     });
   };
 
-  function verifyOTP(event) {
+  async function verifyOTP(event) {
     event.preventDefault();
     const usercode = Object.values(code);
     var allLetters = usercode.join("");
-    navigate("/sendMessage");
+
+    await verifyUserCode(allLetters);
   }
 
   return (
     <form className="usercode_form" onSubmit={verifyOTP}>
       <div className="input_field">{renderInput()}</div>
-      <button type="submit">Verify & Proceed</button>
+      {isLoading && (
+        <div className="info_box" style={{ width: "100%" }}>
+          <button
+            style={{
+              width: "100%",
+            }}
+            type="button"
+          >
+            Please Wait..
+          </button>
+        </div>
+      )}
+
+      {error && (
+        <div className="info_box" style={{ width: "100%" }}>
+          <button
+            className="error-btn"
+            style={{
+              width: "100%",
+            }}
+            type="button"
+          >
+            {error}
+          </button>
+        </div>
+      )}
+
+      <button
+        style={{
+          marginTop: "10px",
+        }}
+        type="submit"
+      >
+        Verify & Proceed
+      </button>
     </form>
   );
 }

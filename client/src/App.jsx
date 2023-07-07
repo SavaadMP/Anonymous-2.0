@@ -32,7 +32,7 @@ function App() {
             element={!user ? <Navigate to="/" /> : <Profile />}
           />
           <Route path="/usercode" element={<CodeValidator />} />
-          <Route path="/sendMessage" element={<SendMessage />} />
+          <Route path="/sendMessage/:id" element={<SendMessage />} />
           <Route
             path="/login"
             element={user ? <Navigate to="/profile" /> : <Login />}
