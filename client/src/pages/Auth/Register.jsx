@@ -81,7 +81,7 @@ function Register() {
                       {error}
                     </button>
                   ) : (
-                    <button type="button">Please Wait</button>
+                    <button type="button">Please Wait..</button>
                   )}
                 </div>
               ))}
