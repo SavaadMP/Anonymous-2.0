@@ -1,7 +1,16 @@
 import "./Header.scss";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useLogout } from "../../hooks/useLogout";
 
 function Header() {
+  const { logout } = useLogout();
+  const { user } = useSelector((state) => state.user);
+
+  function logoutAcc() {
+    logout();
+  }
+
   return (
     <header>
       <Link className="logo" to="/">
@@ -18,17 +27,23 @@ function Header() {
           <Link to="/">FAQ</Link>
         </li>
       </ul>
-      <button className="primary-btn">
-        <Link
-          to="/register"
-          style={{
-            textDecoration: "none",
-            color: "white",
-          }}
-        >
-          Get Started
-        </Link>
-      </button>
+      {!user ? (
+        <button className="primary-btn">
+          <Link
+            to="/register"
+            style={{
+              textDecoration: "none",
+              color: "white",
+            }}
+          >
+            Get Started
+          </Link>
+        </button>
+      ) : (
+        <button onClick={logoutAcc} className="primary-btn">
+          Log Out
+        </button>
+      )}
     </header>
   );
 }
