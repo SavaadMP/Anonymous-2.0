@@ -73,18 +73,19 @@ function Register() {
               />
             </div>
 
-            {isLoading ||
-              (error && (
-                <div className="info_box">
-                  {error ? (
-                    <button className="error-btn" type="button">
-                      {error}
-                    </button>
-                  ) : (
-                    <button type="button">Please Wait..</button>
-                  )}
-                </div>
-              ))}
+            {error && (
+              <div className="info_box">
+                <button className="error-btn" type="button">
+                  {error}
+                </button>
+              </div>
+            )}
+
+            {isLoading && (
+              <div className="info_box">
+                <button type="button">Please Wait..</button>
+              </div>
+            )}
 
             <div className="form_group">
               <button className="primary-btn" type="submit">

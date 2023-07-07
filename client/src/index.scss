@@ -46,6 +46,10 @@ body {
     margin-top: 10px;
     background: green;
 
+    &:hover {
+      background: green;
+    }
+
     &.error-btn {
       background: #ff4a4a;
 
