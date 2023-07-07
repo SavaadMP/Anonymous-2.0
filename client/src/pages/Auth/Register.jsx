@@ -17,8 +17,6 @@ function Register() {
     await register(username, usercode, email, password, confirmPassword);
   }
 
-  console.log(error);
-
   return (
     <div className="auth_container">
       <div className="auth_content">
@@ -74,6 +72,19 @@ function Register() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
+
+            {isLoading ||
+              (error && (
+                <div className="info_box">
+                  {error ? (
+                    <button className="error-btn" type="button">
+                      {error}
+                    </button>
+                  ) : (
+                    <button type="button">Please Wait</button>
+                  )}
+                </div>
+              ))}
 
             <div className="form_group">
               <button className="primary-btn" type="submit">

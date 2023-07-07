@@ -40,3 +40,18 @@ body {
   border: 2px solid $primary-color;
   color: $primary-color;
 }
+
+.info_box {
+  button {
+    margin-top: 10px;
+    background: green;
+
+    &.error-btn {
+      background: #ff4a4a;
+
+      &:hover {
+        background: #ff4a4a;
+      }
+    }
+  }
+}
