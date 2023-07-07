@@ -67,8 +67,6 @@ function UserCodeForm() {
     event.preventDefault();
     const usercode = Object.values(code);
     var allLetters = usercode.join("");
-
-    console.log(allLetters);
     navigate("/sendMessage");
   }
 

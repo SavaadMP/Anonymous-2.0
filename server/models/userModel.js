@@ -80,4 +80,11 @@ userSchema.statics.login = async function (email, password) {
   return user;
 };
 
+userSchema.statics.verifyUserCode = async function (usercode) {
+  const user = await this.findOne({ usercode: usercode });
+  if (!user) throw Error("User not found!!");
+
+  return user;
+};
+
 module.exports = mongoose.model("User", userSchema);
