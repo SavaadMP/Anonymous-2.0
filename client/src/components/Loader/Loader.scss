@@ -6,6 +6,7 @@
   justify-content: center;
   flex-direction: column;
   position: absolute;
+  width: 100%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -13,24 +14,22 @@
   .image {
     i {
       font-size: 80px;
-      animation: rotate 1s infinite ease;
+      // animation: rotate 1s infinite ease;
     }
   }
   .text {
     margin-top: 20px;
-    p {
+    text-align: center;
+    h3 {
       font-size: 25px;
       font-weight: bold;
       color: $primary-color;
+      margin-bottom: 10px;
     }
-  }
-}
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+    p {
+      font-size: 18px;
+      color: $text-color;
+    }
   }
 }

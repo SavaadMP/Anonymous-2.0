@@ -56,7 +56,7 @@ function Login() {
 
             <div className="form_group">
               <button className="primary-btn" type="submit">
-                Create Account
+                Login
               </button>
             </div>
             <div className="form_group change_auth">

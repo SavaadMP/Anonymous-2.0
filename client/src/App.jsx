@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setIsLoading } from "./redux/loader";
 
 import Header from "./components/Header/Header";
 import Hero from "./pages/Hero/Hero";
@@ -14,6 +15,16 @@ import Loader from "./components/Loader/Loader";
 function App() {
   const { user } = useSelector((state) => state.user);
   const { isLoading } = useSelector((state) => state.loader);
+
+  const dispatch = useDispatch();
+
+  window.addEventListener("offline", (event) => {
+    dispatch(setIsLoading(true));
+  });
+
+  window.addEventListener("online", (event) => {
+    dispatch(setIsLoading(false));
+  });
 
   return (
     <>
