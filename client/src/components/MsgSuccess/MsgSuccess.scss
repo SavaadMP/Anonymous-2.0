@@ -1,0 +1,47 @@
+@import "../../variables";
+
+.succes_container {
+  .content {
+    padding: 10%;
+    width: 100%;
+    text-align: center;
+
+    .info_box {
+      color: green;
+      padding: 10px;
+      letter-spacing: 1px;
+    }
+
+    .guide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: left;
+
+      p.alert_msg {
+        text-align: center;
+        font-weight: bold;
+        color: $primary-color;
+        margin-bottom: 10px;
+      }
+
+      .guide_box {
+        margin: 20px;
+        .msg {
+          width: 100%;
+          display: flex;
+          background: $primary-color;
+          margin-bottom: 10px;
+          padding: 20px;
+          color: white;
+          border-radius: 8px;
+
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+}

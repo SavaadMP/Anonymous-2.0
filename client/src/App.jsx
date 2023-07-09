@@ -11,6 +11,7 @@ import Register from "./pages/Auth/Register";
 import Login from "./pages/Auth/Login";
 import Profile from "./pages/Profile/Profile";
 import Loader from "./components/Loader/Loader";
+import MsgSuccess from "./components/MsgSuccess/MsgSuccess";
 
 function App() {
   const { user } = useSelector((state) => state.user);
@@ -44,6 +45,10 @@ function App() {
           />
           <Route path="/usercode" element={<CodeValidator />} />
           <Route path="/sendMessage/:id" element={<SendMessage />} />
+          <Route
+            path="/msg_success"
+            element={user ? <Navigate to="/profile" /> : <MsgSuccess />}
+          />
           <Route
             path="/login"
             element={user ? <Navigate to="/profile" /> : <Login />}
