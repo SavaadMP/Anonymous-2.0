@@ -3,6 +3,7 @@ import { useMessages } from "../../hooks/useAllMessages";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import MessageBox from "../MessageBox/MessageBox";
+import EmptyMessages from "../EmptyMessages/EmptyMessages";
 
 const AllMessages = () => {
   const [filter, setFilter] = useState("viewAllMessages");
@@ -38,10 +39,13 @@ const AllMessages = () => {
 
       <div className="messages">
         {!isLoading ? (
-          messages &&
-          messages.map((item, index) => {
-            return <MessageBox key={index} message={item} />;
-          })
+          messages.length > 0 ? (
+            messages.map((item, index) => {
+              return <MessageBox key={index} message={item} />;
+            })
+          ) : (
+            <EmptyMessages />
+          )
         ) : (
           <p className="loading">
             <i className="bx bxs-hourglass" style={{ color: "#4631be" }}></i>

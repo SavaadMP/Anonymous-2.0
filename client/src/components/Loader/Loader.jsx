@@ -1,14 +1,19 @@
 import "./Loader.scss";
 
-const Loader = () => {
+const Loader = ({
+  icon = "bx bx-wifi-off",
+  rotate = false,
+  text = "No Internet Connection!! ☹️",
+  passage = "OOPS!! Check your internet connection and try again.. ❤️",
+}) => {
   return (
     <div className="loader_container">
-      <div className="image">
-        <i className="bx bx-wifi-off" style={{ color: "#4631be" }}></i>
+      <div className={`${rotate ? "rotate image" : "image"}`}>
+        <i className={icon} style={{ color: "#4631be" }}></i>
       </div>
       <div className="text">
-        <h3>No Internet Connection!! ☹️</h3>
-        <p>OOPS!! Check your internet connection and try again.. ❤️</p>
+        <h3>{text}</h3>
+        <p>{passage}</p>
       </div>
     </div>
   );

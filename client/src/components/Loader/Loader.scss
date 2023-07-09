@@ -12,9 +12,14 @@
   transform: translate(-50%, -50%);
 
   .image {
+    &.rotate {
+      i {
+        animation: rotate 1s infinite ease;
+      }
+    }
+
     i {
       font-size: 80px;
-      // animation: rotate 1s infinite ease;
     }
   }
   .text {
@@ -31,5 +36,14 @@
       font-size: 18px;
       color: $text-color;
     }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

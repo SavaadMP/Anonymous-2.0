@@ -1,0 +1,31 @@
+@import "../../variables";
+
+.empty_messages_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100%;
+  position: relative;
+  padding: 40px;
+
+  .content {
+    i {
+      font-size: 65px;
+      color: $text-color;
+    }
+
+    h1 {
+      font-size: 25px;
+      color: $text-color;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #9e6ea6;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  }
+}

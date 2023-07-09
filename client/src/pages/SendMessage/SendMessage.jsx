@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useGetUser } from "../../hooks/useGetUser";
 import { useSendMessage } from "../../hooks/useSendMessage";
+import Loader from "../../components/Loader/Loader";
 
 function SendMessage() {
   const [user, setUser] = useState(null);
@@ -29,7 +30,7 @@ function SendMessage() {
   return (
     <section className="sendMessage_container">
       <div className="sendMessage_content">
-        {user && (
+        {user ? (
           <form onSubmit={sendMessageHandler}>
             <div className="row">
               <div className="form_group">
@@ -68,6 +69,13 @@ function SendMessage() {
               <button type="submit">Send Message 🚀</button>
             </div>
           </form>
+        ) : (
+          <Loader
+            icon="bx bx-loader-circle"
+            rotate={true}
+            text="Fetching Data..."
+            passage="Please Wait... Or check your internet connection"
+          />
         )}
       </div>
     </section>

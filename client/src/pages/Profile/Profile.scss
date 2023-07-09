@@ -61,6 +61,15 @@
       padding: 10px;
       width: 100%;
       overflow: scroll;
+      &::-webkit-scrollbar {
+        width: 1px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #9e6ea6ae;
+        outline: 1px solid #9e6ea692;
+      }
+
       .tabs_content {
         display: flex;
         align-items: center;
