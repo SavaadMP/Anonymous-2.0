@@ -14,3 +14,16 @@
     }
   }
 }
+
+.loading {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+
+  i {
+    margin-right: 10px;
+  }
+}

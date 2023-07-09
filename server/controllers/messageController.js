@@ -38,4 +38,92 @@ const sendMessage = async (req, res) => {
   }
 };
 
-module.exports = { verifyUserCode, getSingleUser, sendMessage };
+const viewAllMessages = async (req, res) => {
+  try {
+    const messages = await Message.find({ usercode: req.user.usercode }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(messages);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+const viewMessages = async (req, res) => {
+  try {
+    const messages = await Message.find({
+      usercode: req.user.usercode,
+      type: "Message",
+    }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(messages);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+const viewQuestions = async (req, res) => {
+  try {
+    const messages = await Message.find({
+      usercode: req.user.usercode,
+      type: "Question",
+    }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(messages);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+const viewAdvices = async (req, res) => {
+  try {
+    const messages = await Message.find({
+      usercode: req.user.usercode,
+      type: "Advice",
+    }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(messages);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+const viewOpinions = async (req, res) => {
+  try {
+    const messages = await Message.find({
+      usercode: req.user.usercode,
+      type: "Opinion",
+    }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(messages);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+const viewCompliments = async (req, res) => {
+  try {
+    const messages = await Message.find({
+      usercode: req.user.usercode,
+      type: "Compliments",
+    }).sort({
+      createdAt: -1,
+    });
+    res.status(200).json(messages);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
+module.exports = {
+  verifyUserCode,
+  getSingleUser,
+  sendMessage,
+  viewAllMessages,
+  viewQuestions,
+  viewAdvices,
+  viewOpinions,
+  viewCompliments,
+  viewMessages,
+};

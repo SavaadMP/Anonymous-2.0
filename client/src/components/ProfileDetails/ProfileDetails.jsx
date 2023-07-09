@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLogout } from "../../hooks/useLogout";
 
-const ProfileDetails = () => {
+const ProfileDetails = ({ setTab }) => {
   const { user } = useSelector((state) => state.user);
   const [isCopied, setIsCopied] = useState(false);
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const ProfileDetails = () => {
           <button onClick={sendMessage}>Send Message</button>
         </div>
         <div>
-          <button>Reset My Usercode</button>
+          <button onClick={() => setTab(2)}>Reset My Usercode</button>
           <button onClick={logoutAcc}>Log Out</button>
         </div>
       </div>

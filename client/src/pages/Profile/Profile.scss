@@ -91,10 +91,15 @@
   .profile_container {
     .profile_content {
       flex-direction: column;
+      height: 1000px;
       .left {
         margin-right: 0;
         width: 100%;
         margin-bottom: 30px;
+      }
+
+      .right {
+        overflow: scroll;
       }
     }
   }

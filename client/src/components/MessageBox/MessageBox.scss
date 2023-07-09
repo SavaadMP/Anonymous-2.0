@@ -1,42 +1,37 @@
 @import "../../variables";
 
-.message_box {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f3f3f3;
-  margin-bottom: 10px;
-  width: 100%;
+.message_container {
   padding: 10px;
+  background: #f1f1f1;
+  margin-bottom: 10px;
+
+  .message {
+    span {
+      color: $white-color;
+      background: $secondary-color;
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 30px;
+  }
 
   .mark_as_read {
     display: flex;
     align-items: center;
-    justify-content: center;
-    input {
-      height: 15px;
-      width: 15px;
+
+    button {
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: none;
+      background: #9e6ea6;
+      color: white;
+      margin-right: 10px;
       cursor: pointer;
     }
-  }
-
-  .msg {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-
-    p {
-      height: 40px;
-      padding: 0 10px;
-    }
-  }
-  .time {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: end;
   }
 }
