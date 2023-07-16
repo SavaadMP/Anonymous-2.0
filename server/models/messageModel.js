@@ -19,6 +19,11 @@ const messageSchema = new Schema(
       type: String,
       required: true,
     },
+
+    markedAsRead: {
+      type: Boolean,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -31,7 +36,7 @@ messageSchema.statics.sendMessage = async function (usercode, type, message) {
   const isExistUsercode = User.findOne({ usercode });
   if (!isExistUsercode) throw Error("User not found!!");
 
-  const msg = this.create({ usercode, type, message });
+  const msg = this.create({ usercode, type, message, markedAsRead: false });
   return msg;
 };
 

@@ -116,6 +116,25 @@ const viewCompliments = async (req, res) => {
   }
 };
 
+const changeReadStatus = async (req, res) => {
+  const { id } = req.params;
+  const { value } = req.body;
+
+  try {
+    const updatedMessage = await Message.findByIdAndUpdate(
+      id,
+      {
+        markedAsRead: value,
+      },
+      { new: true }
+    ).then(() => {});
+
+    res.status(200).json(updatedMessage);
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
+};
+
 module.exports = {
   verifyUserCode,
   getSingleUser,
@@ -126,4 +145,5 @@ module.exports = {
   viewOpinions,
   viewCompliments,
   viewMessages,
+  changeReadStatus,
 };

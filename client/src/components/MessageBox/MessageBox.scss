@@ -5,6 +5,11 @@
   background: #f1f1f1;
   margin-bottom: 10px;
 
+  &.active {
+    opacity: 0.7;
+    text-decoration: line-through;
+  }
+
   .message {
     span {
       color: $white-color;

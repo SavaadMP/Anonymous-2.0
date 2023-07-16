@@ -1,8 +1,28 @@
 import "./MessageBox.scss";
+import { API_URI } from "../../api/api";
+import { useState } from "react";
 
 const MessageBox = ({ message }) => {
+  const [read, setRead] = useState(message.markedAsRead);
+
+  async function changeReadStatus(value) {
+    console.log("Button Clicked!", message._id);
+
+    const response = await fetch(`${API_URI}/changeReadStatus/${message._id}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ value }),
+    });
+
+    if (!response.ok) {
+      alert("Something went wrong!! Try again later");
+    } else {
+      setRead(!read);
+    }
+  }
+
   return (
-    <div className="message_container">
+    <div className={`message_container ${!read ? "" : "active"}`}>
       <div className="message">
         <p>
           <span>{message.type}</span>
@@ -11,8 +31,13 @@ const MessageBox = ({ message }) => {
       </div>
 
       <div className="mark_as_read">
-        <button>Take Screenshot</button>
-        <button>More options</button>
+        {message.markedAsRead == false ? (
+          <button onClick={() => changeReadStatus(true)}>Mark as read</button>
+        ) : (
+          <button onClick={() => changeReadStatus(false)}>
+            Mark as unread
+          </button>
+        )}
       </div>
     </div>
   );

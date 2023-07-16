@@ -11,6 +11,7 @@ const {
   viewOpinions,
   viewCompliments,
   viewMessages,
+  changeReadStatus,
 } = require("../controllers/messageController");
 const requireAuth = require("../middlewares/requireAuth");
 
@@ -20,6 +21,7 @@ app.post("/login", loginUser);
 app.post("/verifyUserCode/:id", verifyUserCode);
 app.get("/getSingleUser/:id", getSingleUser);
 app.post("/sendMessage", sendMessage);
+app.post("/changeReadStatus/:id", changeReadStatus);
 
 app.get("/viewAllMessages", requireAuth, viewAllMessages);
 app.get("/viewMessages", requireAuth, viewMessages);
