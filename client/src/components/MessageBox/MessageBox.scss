@@ -5,11 +5,6 @@
   background: #f1f1f1;
   margin-bottom: 10px;
 
-  &.active {
-    opacity: 0.7;
-    text-decoration: line-through;
-  }
-
   .message {
     span {
       color: $white-color;
@@ -18,6 +13,7 @@
       border-radius: 8px;
       font-size: 14px;
       margin-right: 10px;
+      text-decoration: none;
     }
 
     font-weight: 500;
@@ -37,6 +33,17 @@
       color: white;
       margin-right: 10px;
       cursor: pointer;
+    }
+  }
+
+  &.active {
+    opacity: 0.7;
+
+    p {
+      span {
+        text-decoration: none !important;
+      }
+      text-decoration: line-through;
     }
   }
 }

@@ -6,8 +6,6 @@ const MessageBox = ({ message }) => {
   const [read, setRead] = useState(message.markedAsRead);
 
   async function changeReadStatus(value) {
-    console.log("Button Clicked!", message._id);
-
     const response = await fetch(`${API_URI}/changeReadStatus/${message._id}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -31,7 +29,7 @@ const MessageBox = ({ message }) => {
       </div>
 
       <div className="mark_as_read">
-        {message.markedAsRead == false ? (
+        {read == false ? (
           <button onClick={() => changeReadStatus(true)}>Mark as read</button>
         ) : (
           <button onClick={() => changeReadStatus(false)}>

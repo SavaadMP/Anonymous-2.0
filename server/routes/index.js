@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express.Router();
-const { registerUser, loginUser } = require("../controllers/authController");
+const {
+  registerUser,
+  loginUser,
+  updateProfile,
+} = require("../controllers/authController");
 const {
   verifyUserCode,
   getSingleUser,
@@ -17,6 +21,7 @@ const requireAuth = require("../middlewares/requireAuth");
 
 app.post("/register", registerUser);
 app.post("/login", loginUser);
+app.post("/updateProfile/:id", requireAuth, updateProfile);
 
 app.post("/verifyUserCode/:id", verifyUserCode);
 app.get("/getSingleUser/:id", getSingleUser);

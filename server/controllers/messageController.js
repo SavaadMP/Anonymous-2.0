@@ -1,3 +1,4 @@
+const { mongoose } = require("mongoose");
 const User = require("../models/userModel");
 const Message = require("../models/messageModel");
 
@@ -28,10 +29,10 @@ const getSingleUser = async (req, res) => {
 };
 
 const sendMessage = async (req, res) => {
-  const { usercode, type, message } = req.body;
+  const { usercode, type, message, userId } = req.body;
 
   try {
-    await Message.sendMessage(usercode, type, message);
+    await Message.sendMessage(usercode, type, message, userId);
     res.status(200).json({ usercode, type, message });
   } catch (error) {
     res.status(404).json({ error: error.message });
@@ -40,7 +41,9 @@ const sendMessage = async (req, res) => {
 
 const viewAllMessages = async (req, res) => {
   try {
-    const messages = await Message.find({ usercode: req.user.usercode }).sort({
+    const messages = await Message.find({
+      userId: new mongoose.Types.ObjectId(req.user._id),
+    }).sort({
       createdAt: -1,
     });
     res.status(200).json(messages);
@@ -52,7 +55,7 @@ const viewAllMessages = async (req, res) => {
 const viewMessages = async (req, res) => {
   try {
     const messages = await Message.find({
-      usercode: req.user.usercode,
+      userId: req.user._id,
       type: "Message",
     }).sort({
       createdAt: -1,
@@ -66,7 +69,7 @@ const viewMessages = async (req, res) => {
 const viewQuestions = async (req, res) => {
   try {
     const messages = await Message.find({
-      usercode: req.user.usercode,
+      userId: req.user._id,
       type: "Question",
     }).sort({
       createdAt: -1,
@@ -79,7 +82,7 @@ const viewQuestions = async (req, res) => {
 const viewAdvices = async (req, res) => {
   try {
     const messages = await Message.find({
-      usercode: req.user.usercode,
+      userId: req.user._id,
       type: "Advice",
     }).sort({
       createdAt: -1,
@@ -92,7 +95,7 @@ const viewAdvices = async (req, res) => {
 const viewOpinions = async (req, res) => {
   try {
     const messages = await Message.find({
-      usercode: req.user.usercode,
+      userId: req.user._id,
       type: "Opinion",
     }).sort({
       createdAt: -1,
@@ -105,7 +108,7 @@ const viewOpinions = async (req, res) => {
 const viewCompliments = async (req, res) => {
   try {
     const messages = await Message.find({
-      usercode: req.user.usercode,
+      userId: req.user.usercode,
       type: "Compliments",
     }).sort({
       createdAt: -1,

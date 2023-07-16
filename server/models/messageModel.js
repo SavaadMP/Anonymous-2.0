@@ -15,7 +15,7 @@ const messageSchema = new Schema(
       required: true,
     },
 
-    usercode: {
+    userId: {
       type: String,
       required: true,
     },
@@ -28,7 +28,12 @@ const messageSchema = new Schema(
   { timestamps: true }
 );
 
-messageSchema.statics.sendMessage = async function (usercode, type, message) {
+messageSchema.statics.sendMessage = async function (
+  usercode,
+  type,
+  message,
+  userId
+) {
   if (!usercode || !message || !type) {
     throw Error("all fields must be entered!!");
   }
@@ -36,7 +41,12 @@ messageSchema.statics.sendMessage = async function (usercode, type, message) {
   const isExistUsercode = User.findOne({ usercode });
   if (!isExistUsercode) throw Error("User not found!!");
 
-  const msg = this.create({ usercode, type, message, markedAsRead: false });
+  const msg = this.create({
+    userId: userId,
+    type,
+    message,
+    markedAsRead: false,
+  });
   return msg;
 };
 
