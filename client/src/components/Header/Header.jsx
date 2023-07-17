@@ -21,10 +21,10 @@ function Header() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/">About</Link>
+          <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/">FAQ</Link>
+          <Link to="/faq">FAQ</Link>
         </li>
       </ul>
       {!user ? (
