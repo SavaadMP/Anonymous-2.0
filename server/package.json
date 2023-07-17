@@ -4,7 +4,8 @@
   "main": "server.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "buid": "yarn"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
